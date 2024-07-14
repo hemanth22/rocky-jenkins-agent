@@ -16,10 +16,10 @@ ENV TZ=Etc/UTC
 ENV LANG=C.UTF-8
 
 # Define Jenkins user and group
-ARG user=jenkins
-ARG group=jenkins
-ARG uid=1000
-ARG gid=1000
+ENV user=jenkins
+ENV group=jenkins
+ENV uid=1000
+ENV gid=1000
 
 # Set up Jenkins agent user
 RUN groupadd -g "${gid}" "${group}" && useradd -l -c "Jenkins user" -d /home/"${user}" -u "${uid}" -g "${gid}" -m "${user}" -s /bin/bash || echo "user ${user} already exists."
@@ -34,7 +34,7 @@ VOLUME /home/"${user}"/.jenkins
 VOLUME "${AGENT_WORKDIR}"
 WORKDIR /home/"${user}"
 
-ARG VERSION=3256.v88a_f6e922152
+ENV VERSION=3256.v88a_f6e922152
 ADD --chown="${user}":"${group}" "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar" /usr/share/jenkins/agent.jar
 RUN chmod 0644 /usr/share/jenkins/agent.jar \
   && ln -sf /usr/share/jenkins/agent.jar /usr/share/jenkins/slave.jar
