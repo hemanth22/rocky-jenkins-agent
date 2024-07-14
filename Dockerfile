@@ -2,7 +2,7 @@ FROM quay.io/hemanth22/rockylinux9:9
 
 # Install necessary packages
 RUN yum -y update && \
-    yum -y install java-17-openjdk java-17-openjdk-devel fontconfig wget git sudo git git-lfs less openssh-client patch && \
+    yum -y install java-17-openjdk java-17-openjdk-devel fontconfig wget git sudo git git-lfs less patch && \
     yum clean all && \
     rm -rf /var/cache/yum
 
