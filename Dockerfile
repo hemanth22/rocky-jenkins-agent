@@ -21,4 +21,4 @@ USER jenkins
 WORKDIR /home/jenkins
 
 # Entry point for Jenkins agent with environment variables
-ENTRYPOINT ["sh", "-c", "java -jar /usr/local/bin/jenkins-agent.jar -url $JENKINS_URL $JENKINS_SECRET $JENKINS_AGENT_NAME"]
+ENTRYPOINT ["sh", "-c", "java -jar /usr/local/bin/jenkins-agent.jar -jnlpUrl $JENKINS_URL -secret $JENKINS_SECRET -name $JENKINS_AGENT_NAME"]
