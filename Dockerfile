@@ -50,5 +50,5 @@ RUN chmod +x /usr/local/bin/jenkins-agent \
 # Switch back to Jenkins user
 USER jenkins
 
-# Entry point for Jenkins agent with environment variables
-ENTRYPOINT ["sh", "-c", "java -jar /usr/local/bin/jenkins-agent.jar -jnlpUrl $JENKINS_URL -secret $JENKINS_SECRET -name $JENKINS_AGENT_NAME"]
+# Define entrypoint for inbound agent
+ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
