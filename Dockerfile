@@ -28,7 +28,7 @@ RUN groupadd -g "1000" "jenkins" && useradd -l -c "Jenkins user" -d /home/jenkin
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Set up volumes and working directory
-USER "${user}"
+USER jenkins
 RUN mkdir -p /home/jenkins/.jenkins && mkdir -p "${AGENT_WORKDIR}"
 VOLUME /home/jenkins/.jenkins
 VOLUME "${AGENT_WORKDIR}"
