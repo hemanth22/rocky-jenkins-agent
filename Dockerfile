@@ -29,8 +29,7 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Set up volumes and working directory
 USER jenkins
-RUN mkdir -p /home/jenkins/.jenkins && mkdir -p "${AGENT_WORKDIR}" && mkdir -p/home/jenkins/.ansible
-VOLUME /home/jenkins/.ansible
+RUN mkdir -p /home/jenkins/.jenkins && mkdir -p "${AGENT_WORKDIR}"
 VOLUME /home/jenkins/.jenkins
 VOLUME "${AGENT_WORKDIR}"
 WORKDIR /home/jenkins
